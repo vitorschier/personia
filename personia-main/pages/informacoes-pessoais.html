@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Informações pessoais | PersonIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="lav has-nav" data-nav="perfil">
+<header class="topbar">
+  <a class="back" href="perfil.html" aria-label="Voltar"><i data-icon="arrow-left"></i></a>
+  <h1>Informações pessoais</h1><span></span>
+</header>
+<main class="screen narrow">
+  <div class="photo"><div class="avatar"><span>US</span><img src="../images/ana.jpg" alt="Foto de Ana Silva" onerror="this.remove()"></div><a href="#" data-soon class="link">Alterar foto</a></div>
+  <form id="info" class="card sm form" data-validate data-ok="Alterações salvas!" novalidate>
+    <div class="two"><div class="field"><label for="nome">Nome</label><div class="input"><input id="nome" data-field="nome" value="Nome" required></div></div>
+      <div class="field"><label for="sobrenome">Sobrenome</label><div class="input"><input id="sobrenome" data-field="sobrenome" value="Sobrenome" required></div></div></div>
+    <div class="field"><label for="mail">E-mail</label><div class="input"><input id="mail" type="email" data-field="mail" value="usuario@email.com" required></div></div>
+    <div class="field"><label for="tel">Telefone</label><div class="input"><input id="tel" type="tel" data-field="tel" value="(11) 98765-4321" pattern="\(\d{2}\) \d{5}-\d{4}" title="Use o formato (11) 98765-4321." required></div></div>
+    <div class="field"><label for="nasc">Data de nascimento</label><div class="input"><input id="nasc" data-field="nasc" value="dd/mm/aaaa" placeholder="dd/mm/aaaa" pattern="\d{2}/\d{2}/\d{4}" title="Use o formato dd/mm/aaaa." required><i data-icon="calendar"></i></div></div>
+    <div class="field"><label for="gen">Gênero</label><div class="input"><select id="gen" data-field="genero"><option>Feminino</option><option>Masculino</option><option>Outro</option><option>Prefiro não informar</option></select><i data-icon="chevron-down"></i></div></div>
+  </form>
+  <button class="btn" type="submit" form="info">Salvar alterações</button>
+  <p class="foot">Seus dados são privados e seguros.</p>
+</main>
+<script src="../js/script.js"></script>
+</body>
+</html>
