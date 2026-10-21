@@ -74,6 +74,16 @@ function criarNavegacao() {
   nav.innerHTML = MENU.map(([id, nome, icone]) =>
     `<a href="${id}.html" class="${id === ativo ? 'on' : ''}"${id === ativo ? ' aria-current="page"' : ''}><span class="ic"><i data-icon="${icone}"></i></span>${nome}</a>`).join('');
   document.body.appendChild(nav);
+
+  // Cabeçalho para telas grandes (o CSS esconde um e mostra o outro)
+  const header = document.createElement('header');
+  header.className = 'site-header';
+  header.innerHTML = `<div class="site-header__in">
+    <a class="site-logo" href="inicio.html" aria-label="PersonIA – Início"><img src="../images/logo.png" alt=""><span class="wordmark sm">Person<b>IA</b></span></a>
+    <nav aria-label="Navegação principal">${MENU.map(([id, nome, icone]) =>
+      `<a href="${id}.html" class="${id === ativo ? 'on' : ''}"${id === ativo ? ' aria-current="page"' : ''}><i data-icon="${icone}"></i>${nome}</a>`).join('')}</nav>
+  </div>`;
+  document.body.prepend(header);
 }
 
 // 3) Aviso rápido (toast)
@@ -91,7 +101,7 @@ document.addEventListener('click', (e) => {
 });
 
 // 4) Armazenamento (localStorage). data-store salva na hora; data-field salva ao enviar o formulário.
-const PREFIXO = 'personia:';
+const PREFIXO = 'personia:v2:'; // v2: descarta nomes salvos em versões antigas
 const ler = (k) => { try { return localStorage.getItem(PREFIXO + k); } catch (e) { return null; } };
 const gravar = (k, v) => { try { localStorage.setItem(PREFIXO + k, v); } catch (e) {} };
 const chave = (el) => el.dataset.store || el.dataset.field;
@@ -105,9 +115,14 @@ function iniciarArmazenamento() {
   document.querySelectorAll('[data-store],[data-field]').forEach(restaurar);
   document.querySelectorAll('[data-store]').forEach((el) => el.addEventListener('change', () => salvar(el)));
   const nome = ler('nome'), sobrenome = ler('sobrenome');
-  document.querySelectorAll('[data-nome]').forEach((el) => { if (nome) el.textContent = nome; });
-  document.querySelectorAll('[data-fullname]').forEach((el) => { if (nome) el.textContent = `${nome} ${sobrenome || ''}`.trim(); });
-  document.querySelectorAll('.avatar span').forEach((el) => { if (nome) el.textContent = (nome[0] + (sobrenome ? sobrenome[0] : '')).toUpperCase(); });
+  if (nome) {
+    const completo = `${nome} ${sobrenome || ''}`.trim();
+    const partes = completo.split(/\s+/);
+    const iniciais = (partes[0][0] + (partes.length > 1 ? partes[partes.length - 1][0] : '')).toUpperCase();
+    document.querySelectorAll('[data-nome]').forEach((el) => { el.textContent = partes[0]; });
+    document.querySelectorAll('[data-fullname]').forEach((el) => { el.textContent = completo; });
+    document.querySelectorAll('.avatar span').forEach((el) => { el.textContent = iniciais; });
+  }
 }
 
 // 5) Formulários com validação simples
@@ -118,6 +133,7 @@ function validar(form) {
     let msg = '';
     if (!v) msg = 'Preencha este campo.';
     else if (inp.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) msg = 'Digite um e-mail válido.';
+    else if (inp.dataset.match && v !== document.getElementById(inp.dataset.match).value) msg = 'As senhas não são iguais.';
     else if (inp.minLength > 0 && v.length < inp.minLength) msg = `Use pelo menos ${inp.minLength} caracteres.`;
     else if (inp.pattern && !new RegExp(`^(?:${inp.pattern})$`).test(v)) msg = inp.title || 'Formato inválido.';
     const campo = inp.closest('.field');
@@ -135,17 +151,17 @@ function iniciarFormularios() {
       e.preventDefault();
       if (!validar(form)) { aviso('Confira os campos destacados.'); return; }
       document.querySelectorAll('[data-field]').forEach(salvar);
+      if ('saveName' in form.dataset) { gravar('nome', form.querySelector('[data-save="nome"]').value.trim()); gravar('sobrenome', ''); gravar('mail', form.querySelector('[data-save="mail"]').value.trim()); }
       if (form.dataset.next) location.href = form.dataset.next; else aviso(form.dataset.ok || 'Salvo!');
     });
   });
-  const olho = document.querySelector('.eye');
-  if (olho) olho.addEventListener('click', () => {
+  document.querySelectorAll('.eye').forEach((olho) => olho.addEventListener('click', () => {
     const campo = olho.parentElement.querySelector('input');
     const mostrar = campo.type === 'password';
     campo.type = mostrar ? 'text' : 'password';
     olho.innerHTML = `<i data-icon="${mostrar ? 'eye' : 'eye-off'}"></i>`;
     desenharIcones(olho);
-  });
+  }));
 }
 
 // 6) Menu lateral da Home

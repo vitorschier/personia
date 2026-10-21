@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Criar conta | PersonIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="dark login-page">
+<div class="login">
+  <div class="brand-top compact"><div class="brand"><img src="../images/logo.png" alt=""><p class="wordmark">Person<b>IA</b></p></div></div>
+  <main class="panel">
+    <div class="intro"><h1>Crie sua conta</h1><p>Comece sua jornada em poucos passos.</p></div>
+    <form data-validate data-next="inicio.html" data-save-name novalidate>
+      <div class="field"><label for="nome">Nome</label>
+        <div class="input"><input id="nome" data-save="nome" type="text" placeholder="Como podemos te chamar?" autocomplete="name" required><i data-icon="user"></i></div></div>
+      <div class="field"><label for="email">E-mail</label>
+        <div class="input"><input id="email" data-save="mail" type="email" placeholder="seuemail@exemplo.com" autocomplete="email" required><i data-icon="mail"></i></div></div>
+      <div class="field"><label for="senha">Senha</label>
+        <div class="input"><input id="senha" type="password" placeholder="Mínimo de 6 caracteres" minlength="6" autocomplete="new-password" required>
+          <button type="button" class="eye" aria-label="Mostrar ou ocultar senha"><i data-icon="eye-off"></i></button></div></div>
+      <div class="field"><label for="senha2">Confirmar senha</label>
+        <div class="input"><input id="senha2" type="password" placeholder="Repita a senha" data-match="senha" autocomplete="new-password" required>
+          <button type="button" class="eye" aria-label="Mostrar ou ocultar senha"><i data-icon="eye-off"></i></button></div></div>
+      <button class="btn" type="submit">Criar conta</button>
+    </form>
+    <p class="signup">Já tem uma conta? <a href="entrar.html">Entrar</a></p>
+    <p class="safe"><i data-icon="shield-check"></i>Seus dados estão protegidos</p>
+  </main>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>

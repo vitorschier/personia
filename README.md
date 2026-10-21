@@ -1,18 +1,17 @@
 # PersonIA – site responsivo (HTML + CSS + JavaScript puro)
 
-Abra `index.html` no navegador (ou use a extensão Live Server do VS Code).
+Abra `index.html` no navegador (ou use Live Server no VS Code).
 
-## Estrutura
+## Páginas (14 arquivos HTML)
 - `index.html` – Boas-vindas
-- `pages/` – entrar, inicio, camera, resultado, progresso, perfil, informacoes-pessoais, objetivos, preferencias, dispositivos, configuracoes, ajuda
-- `css/style.css` – todos os estilos (cores em `:root`)
-- `js/script.js` – ícones, navegação inferior, validação, localStorage, câmera, dispositivos, busca
-- `images/` – coloque aqui os arquivos exportados do Figma
+- `pages/entrar.html` e `pages/criar-conta.html` – acesso (um link leva ao outro)
+- `pages/inicio`, `camera`, `resultado`, `progresso`, `perfil`, `informacoes-pessoais`, `objetivos`, `preferencias`, `dispositivos`, `configuracoes`, `ajuda`
 
-## Imagens que você precisa exportar do Figma
-`images/corrida.jpg` (foto da tela de boas-vindas), `images/ana.jpg` (foto de perfil) e, se quiser o logo original, substitua `images/logo.svg`.
-Enquanto não existirem, o site mostra um degradê no lugar das fotos.
+## Arquivos
+- `css/style.css` – estilos (cores em `:root`; cabeçalho desktop e menu mobile no final do arquivo)
+- `js/script.js` – ícones, menu, validação, localStorage, câmera, dispositivos, busca
+- `images/` – `logo.png`, `corrida.jpg`, `ana.jpg` (foto de perfil)
 
-## Fluxo
-Boas-vindas → Entrar → Início → Câmera → Resultado → Progresso; Perfil → todas as telas de configuração.
-Itens sem tela no Figma (ex.: Senha, Termos de uso) mostram um aviso "em breve".
+## Navegação
+- Mobile e tablet (< 900px): menu inferior.
+- Desktop (≥ 900px): cabeçalho preto no topo com logo e menu.

@@ -1,65 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Início | PersonIA</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Início | PersonIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body class="home has-nav" data-nav="inicio">
-  <header class="home-head">
-    <div class="row"><button class="menu-btn" id="menuBtn" aria-label="Abrir menu"><i data-icon="menu"></i></button>
-      <a class="avatar-btn" href="perfil.html" aria-label="Perfil"><i data-icon="user"></i></a>
-    </div>
-    <h1>Olá, <span data-nome>usuario</span></h1>
-  </header>
-  <aside class="drawer" id="drawer" hidden>
-    <nav>
-      <p class="pop">Menu</p><a href="inicio.html">Início</a><a href="camera.html">Câmera</a><a
-        href="resultado.html">Resultado da análise</a><a href="progresso.html">Seu progresso</a><a
-        href="perfil.html">Perfil</a><a href="informacoes-pessoais.html">Informações pessoais</a><a
-        href="objetivos.html">Objetivos</a><a href="preferencias.html">Preferências</a><a
-        href="dispositivos.html">Dispositivos</a><a href="configuracoes.html">Configurações</a><a
-        href="ajuda.html">Ajuda e suporte</a>
-    </nav>
-  </aside>
-  <main class="screen cols">
-    <section class="card span2">
-      <h2>Resumo da semana</h2>
-      <div class="stats">
-        <div class="stat"><small>Treinos</small><b>3</b></div>
-        <div class="stat"><small>Minutos</small><b>120</b></div>
-        <div class="stat"><small>Calorias</small><b>420</b></div>
-      </div>
-    </section>
-    <a class="card row goal-card" href="objetivos.html">
-      <div>
-        <h3>Seu objetivo</h3>
-        <p>Perder peso com saúde</p>
-      </div><span class="chev"><i data-icon="chevron-right"></i></span>
-    </a>
-    <section class="card">
-      <h2>Sujestão de treino</h2>
-      <div class="workout">
-        <div class="row">
-          <h3>Treino Full Body</h3><span class="badge">Iniciante</span>
-        </div>
-        <p class="focus">Foco: Queima de gordura</p>
-        <div class="meta">
-          <div><small>Duração</small><b>30 min</b></div>
-          <div><small>Calorias</small><b>420 kcal</b></div>
-        </div>
-      </div>
-      <a class="btn glow" href="camera.html">Iniciar treino</a>
-    </section>
-  </main>
-  <script src="../js/script.js"></script>
+<header class="home-head">
+  <div class="row"><button class="menu-btn" id="menuBtn" aria-label="Abrir menu"><i data-icon="menu"></i></button>
+    <a class="avatar-btn" href="perfil.html" aria-label="Perfil"><i data-icon="user"></i></a></div>
+  <h1>Olá, <span data-nome>Usuário</span></h1>
+</header>
+<aside class="drawer" id="drawer" hidden><nav><p class="pop">Menu</p><a href="inicio.html">Início</a><a href="camera.html">Câmera</a><a href="resultado.html">Resultado da análise</a><a href="progresso.html">Seu progresso</a><a href="perfil.html">Perfil</a><a href="informacoes-pessoais.html">Informações pessoais</a><a href="objetivos.html">Objetivos</a><a href="preferencias.html">Preferências</a><a href="dispositivos.html">Dispositivos</a><a href="configuracoes.html">Configurações</a><a href="ajuda.html">Ajuda e suporte</a><a href="../index.html">Boas-vindas</a><a href="entrar.html">Entrar</a><a href="criar-conta.html">Criar conta</a></nav></aside>
+<main class="screen cols start">
+  <section class="card span2"><h2>Resumo da semana</h2>
+    <div class="stats"><div class="stat"><small>Treinos</small><b>3</b></div><div class="stat"><small>Minutos</small><b>120</b></div><div class="stat"><small>Calorias</small><b>420</b></div></div></section>
+  <a class="card row goal-card" href="objetivos.html"><div><h3>Seu objetivo</h3><p>Perder peso com saúde</p></div><span class="chev"><i data-icon="chevron-right"></i></span></a>
+  <section class="card"><h2>Sujestão de treino</h2>
+    <div class="workout"><div class="row"><h3>Treino Full Body</h3><span class="badge">Iniciante</span></div>
+      <p class="focus">Foco: Queima de gordura</p>
+      <div class="meta"><div><small>Duração</small><b>30 min</b></div><div><small>Calorias</small><b>420 kcal</b></div></div></div>
+    <a class="btn glow" href="camera.html">Iniciar treino</a></section>
+</main>
+<script src="../js/script.js"></script>
 </body>
-
 </html>
